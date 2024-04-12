@@ -97,6 +97,3 @@ https://localhost:3000
 ```
 
 
-#### demo 
-
-[![Watch the video](https://img.youtube.com/vi/fbt3ZuXG_0s/default.jpg)](https://youtu.be/fbt3ZuXG_0s?si=Eydu_QxOUA5Jo3T-)
