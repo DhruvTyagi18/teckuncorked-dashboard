@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import WebSocketService from '../WebSocketService';
 import Device from '../components/Device';
@@ -83,58 +84,66 @@ const Dashboard = () => {
         />
     ));
 
-    const handleWarningThreshold = (e) => {
-        const newWarningThreshold = e.target.value;
-        setWarningThreshold(newWarningThreshold);
+    const handleWarningThreshold = (e, newValue) => {
+        setWarningThreshold(newValue);
     };
 
-    const handleAlertThreshold = (e) => {
-        const newAlertThreshold = e.target.value;
-        setAlertThreshold(newAlertThreshold);
+    const handleAlertThreshold = (e, newValue) => {
+        setAlertThreshold(newValue);
     };
 
     return (
-        <div className='dashboard-outer' style={{ background: 'linear-gradient(to bottom, #b3d9ff, #ffffff)' }}>
+        <div className='dashboard-outer' style={{ background: 'linear-gradient(to bottom, #b3d9ff, #ffffff)', padding: '20px' }}>
+            <div style={{ backgroundColor: 'darkblue', padding: '10px',width: '120%' }}>
+    <p style={{ marginTop: '1px', fontSize: '24px', fontWeight: 'bold', color: 'white',textAlign:"center" }}>Devices Dashboard</p>
+</div>
+
+
+            <div className='status-outer' style={{ marginTop: '20px' }}>
+                <div className='normal-btn'>Normal: {normal}</div>
+                <div className='warning-btn'>Warning: {warning}</div>
+                <div className='alert-btn'>Alert: {alert}</div>
+            </div>
             <div className='threshold-outer'>
-                <div className='threshold-heading'>{"set threshold here: warning <= alert "}</div>
+                <div className='threshold-heading'>Set Threshold Here: Warning ≤ Alert</div>
                 <div className='threshold'>
-                    warning: {warningThreshold} <Slider
+                    Warning: {warningThreshold} <Slider
                         value={warningThreshold}
                         onChange={handleWarningThreshold}
                         min={0}
-                        valueLabelDisplay="auto"
                         max={100}
-
+                        valueLabelDisplay="auto"
                     />
                 </div>
 
                 <div className='threshold'>
-                    alert: {alertThreshold} <Slider
+                    Alert: {alertThreshold} <Slider
                         value={alertThreshold}
                         onChange={handleAlertThreshold}
                         min={0}
-                        valueLabelDisplay="auto"
                         max={100}
+                        valueLabelDisplay="auto"
                     />
                 </div>
-
             </div>
 
-            <div className='status-outer'>
-                <div className='normal-btn'>Normal : {normal}</div>
-                <div className='warning-btn'>Warning : {warning}</div>
-                <div className='alert-btn'>Alert : {alert}</div>
-            </div>
+            
 
-
-            <p>Devices dashboard</p>
+            
 
             <div className='device-outer'>
-                {
-
-                    deviceList ? (deviceComponents) : <></>
-                }
+                {deviceList && deviceComponents}
             </div>
+
+            <footer style={{ backgroundColor: '#1a237e', color: 'white', padding: '10px', marginTop: '20px', width: "100%", }}>
+    <div style={{ textAlign: 'center',fontSize: '20px' }}>
+        Contact Us
+    </div>
+    <div style={{ textAlign: 'center', marginTop: '10px',fontSize: '13px' }}>
+        Powered by TekUncorked
+    </div>
+</footer>
+
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const SERVER_URL = 'http://localhost:9000/'; 
+const SERVER_URL = 'https://teckuncorked-dashboard.onrender.com'; 
 
 class WebSocketService {
 
