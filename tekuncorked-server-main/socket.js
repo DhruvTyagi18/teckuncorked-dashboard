@@ -3,7 +3,7 @@ const socketIo = require('socket.io');
 const configureSocket = (server)=> {
   const io = socketIo(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "https://teckuncorked-dashboard.vercel.app/",
     }
   });
   return io;
